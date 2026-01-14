@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ecommerce-postgres
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - "127.0.0.1:5432:5432"  # 只暴露到本地，方便开发工具连接
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - ecommerce-network
+
+  strapi:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ecommerce-strapi
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - strapi-uploads:/app/public/uploads
+    depends_on:
+      - postgres
+    networks:
+      - ecommerce-network
+    command: sh -c "npm config set registry https://registry.npmmirror.com && npm install && npm run develop"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ecommerce-frontend
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      PORT: 3000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - strapi
+    networks:
+      - ecommerce-network
+    command: sh -c "npm config set registry https://registry.npmmirror.com && npm install && npm run dev -- -H 0.0.0.0 -p 3000"
+
+  nginx:
+    image: nginx:alpine
+    container_name: ecommerce-nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8080:80"
+    depends_on:
+      - frontend
+      - strapi
+    networks:
+      - ecommerce-network
+
+volumes:
+  postgres-data:
+  strapi-uploads:
+
+networks:
+  ecommerce-network:
+    driver: bridge

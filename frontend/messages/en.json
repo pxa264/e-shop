@@ -1,0 +1,548 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About"
+  },
+  "auth": {
+    "login": {
+      "success": "Welcome back! Signed in successfully.",
+      "failed": "Sign-in failed. Please check your email and password.",
+      "backToStore": "Back to store",
+      "title": "Welcome back",
+      "noAccount": "No account yet?",
+      "signUpNow": "Sign up",
+      "forgotPassword": "Forgot password?",
+      "loading": "Signing in...",
+      "cta": "Sign in"
+    },
+    "register": {
+      "passwordMin": "Password must be at least 6 characters",
+      "passwordMismatch": "Passwords do not match",
+      "successAutoLogin": "Account created. Redirecting...",
+      "successNeedConfirm": "Account created. Please confirm your email before signing in.",
+      "failed": "Sign-up failed. Please try again.",
+      "backToLogin": "Back to sign in",
+      "title": "Create an account",
+      "haveAccount": "Already have an account?",
+      "signInNow": "Sign in",
+      "setPassword": "Create password",
+      "confirmPassword": "Confirm password",
+      "loading": "Creating your account...",
+      "cta": "Sign up"
+    },
+    "forgot": {
+      "successToast": "Reset email sent. Please check your inbox.",
+      "backToLogin": "Back to sign in",
+      "title": "Reset password",
+      "subtitle": "We'll send password reset instructions to your email",
+      "sentTitle": "Email sent!",
+      "sentBody1": "Please check",
+      "sentBody2": " and follow the instructions to reset your password.",
+      "retry": "Didn't receive it? Try another email",
+      "emailPlaceholder": "Enter the email used for your account",
+      "cta": "Send reset email"
+    },
+    "common": {
+      "email": "Email",
+      "password": "Password",
+      "username": "Username"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick links",
+    "support": "Customer support",
+    "contact": "Contact",
+    "description": "Curated premium products from around the world, making shopping a delightful lifestyle experience.",
+    "links": {
+      "products": "All products",
+      "about": "About us",
+      "contact": "Contact us"
+    },
+    "supportLinks": {
+      "faq": "FAQ",
+      "shipping": "Shipping information",
+      "returns": "Returns & refunds"
+    },
+    "contactLabels": {
+      "email": "Support email",
+      "phone": "Hotline"
+    },
+    "bottom": {
+      "copyright": "© 2026 E-Shop. Crafted for an exceptional shopping experience.",
+      "privacy": "Privacy policy",
+      "terms": "Terms of service"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "Our story",
+      "titleLine1": "Connecting",
+      "titleLine2": "every beautiful moment",
+      "subtitle": "Since day one, we've been committed to bringing you curated, high-quality products from around the world. We believe shopping isn't just about getting an item—it's about pursuing a better life."
+    },
+    "vision": {
+      "title": "Our vision",
+      "p1": "In a fast-moving digital era, we're more than an e-commerce platform—we're explorers dedicated to improving everyday life. We go deep into global supply chains to discover products with thoughtful design, strong functionality, and outstanding value.",
+      "p2": "Our team is made up of passionate professionals who care about innovation and quality. From selection and inspection to logistics and support, we refine every step so every click on E-Shop turns into delight and satisfaction."
+    },
+    "values": {
+      "integrity": {
+        "title": "Integrity",
+        "desc": "Trust is earned through honesty—it's the foundation of what we do."
+      },
+      "quality": {
+        "title": "Quality first",
+        "desc": "We set a high bar for quality so every item is carefully curated."
+      },
+      "customerFirst": {
+        "title": "Customer first",
+        "desc": "We prioritize your needs and aim to deliver an exceptional experience."
+      },
+      "innovation": {
+        "title": "Continuous innovation",
+        "desc": "We keep improving and evolving to create a better way to shop."
+      }
+    },
+    "contact": {
+      "title": "Contact us",
+      "phoneLabel": "Hotline",
+      "emailLabel": "Email",
+      "hoursLabel": "Service hours",
+      "hoursValue": "Mon–Sun 9:00–21:00",
+      "addressLabel": "Address",
+      "addressLine1": "China · Beijing · Chaoyang District",
+      "addressLine2": "Tech & Creative Park, No. 88",
+      "backToStore": "Back to store"
+    },
+    "join": {
+      "title": "Join us?",
+      "subtitle": "If you're passionate about building an exceptional shopping experience, we'd love to hear from you.",
+      "cta": "View openings"
+    }
+  },
+  "home": {
+    "exploreNow": "Explore now",
+    "welcomeTitle": "Welcome to Ideal Shop",
+    "welcomeSubtitle": "Curated quality products for a better life",
+    "startShopping": "Start shopping",
+    "hot": "Featured",
+    "viewAll": "View all"
+  },
+  "products": {
+    "title": "Explore products",
+    "subtitle": "Discover quality picks curated for you",
+    "searchPlaceholder": "Search products...",
+    "sort": {
+      "default": "Default sort",
+      "priceAsc": "Price: low to high",
+      "priceDesc": "Price: high to low",
+      "name": "Name A–Z"
+    },
+    "categories": "Categories",
+    "allProducts": "All products",
+    "promo": {
+      "badge": "New deals",
+      "titleLine1": "Storewide",
+      "titleLine2": "20% off+",
+      "cta": "Claim now"
+    },
+    "new": "New",
+    "empty": {
+      "title": "No products found",
+      "subtitle": "Try a different keyword or choose another category",
+      "clear": "Clear all filters"
+    },
+    "detail": {
+      "loading": "Loading...",
+      "backToList": "Back to products",
+      "notFound": {
+        "title": "Product not found",
+        "backToList": "Back to products"
+      },
+      "badges": {
+        "authentic": "Authentic",
+        "inStockSale": "In stock"
+      },
+      "sections": {
+        "description": "Description",
+        "related": "You may also like"
+      },
+      "stock": {
+        "label": "Stock",
+        "inStock": "In stock ({count})",
+        "outOfStock": "Out of stock"
+      },
+      "sku": "SKU",
+      "quantity": "Quantity",
+      "actions": {
+        "addToCart": "Add to cart",
+        "favorite": "Favorite",
+        "favorited": "Favorited"
+      },
+      "toast": {
+        "loginToFavorite": "Please sign in to favorite this product.",
+        "favorited": "Added to favorites",
+        "unfavorited": "Removed from favorites",
+        "addedToCart": "Added {count} x {name} to cart",
+        "addToCartFailed": "Failed to add to cart. Please try again."
+      }
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "addToCart": "Add to cart",
+    "added": "Added {name} to cart",
+    "loading": "Loading...",
+    "pageTitle": "My cart",
+    "pageSubtitle": "Everything you picked is here",
+    "clear": {
+      "button": "Clear cart",
+      "confirm": "Are you sure you want to clear the cart?"
+    },
+    "empty": {
+      "title": "Your cart is empty",
+      "subtitle": "Browse our featured products and find something you love.",
+      "cta": "Browse products"
+    },
+    "item": {
+      "removeAria": "Remove item",
+      "subtotal": "Subtotal: "
+    },
+    "summary": {
+      "title": "Order summary",
+      "subtotal": "Subtotal",
+      "shipping": "Estimated shipping",
+      "freeShipping": "Free",
+      "freeShippingTipPrefix": "Add ",
+      "freeShippingTipSuffix": " more to get free shipping",
+      "total": "Total"
+    },
+    "actions": {
+      "checkout": "Checkout",
+      "continueShopping": "Continue shopping"
+    },
+    "securityNote": "100% secure payment",
+    "toast": {
+      "defaultItemName": "item",
+      "removed": "Removed {name} from cart",
+      "cleared": "Cart cleared"
+    }
+  },
+  "account": {
+    "auth": {
+      "toast": {
+        "expired": "Your session has expired. Please sign in again.",
+        "banned": "Your account has been disabled. Please contact support."
+      }
+    },
+    "menu": {
+      "title": "My account",
+      "profile": "Account",
+      "orders": "My orders",
+      "favorites": "Favorites",
+      "logout": "Sign out"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "profile": "Profile",
+      "addresses": "Addresses",
+      "favorites": "Favorites",
+      "orders": "Orders"
+    },
+    "logout": {
+      "confirm": "Are you sure you want to sign out?"
+    },
+    "home": {
+      "greeting": {
+        "morning": "Good morning, ",
+        "noon": "Good day, ",
+        "afternoon": "Good afternoon, ",
+        "evening": "Good evening, ",
+        "lateNight": "Good night, "
+      },
+      "welcome": "Welcome back to your dashboard. Here you can track orders, manage addresses and view your favorites.",
+      "cards": {
+        "orders": "Orders",
+        "favorites": "Favorites",
+        "addresses": "Addresses"
+      },
+      "units": {
+        "orders": "",
+        "items": "",
+        "addresses": ""
+      },
+      "todo": {
+        "title": "Order status",
+        "pendingPayment": "Pending payment",
+        "processing": "Processing",
+        "shipped": "Shipped",
+        "completed": "Completed"
+      },
+      "overview": {
+        "title": "Account overview"
+      },
+      "quickActions": {
+        "title": "Quick actions",
+        "profile": {
+          "title": "Edit profile",
+          "desc": "Update your personal information"
+        },
+        "addresses": {
+          "title": "Manage addresses",
+          "desc": "Add or edit shipping addresses"
+        },
+        "orders": {
+          "title": "View orders",
+          "desc": "Order history and status"
+        },
+        "shop": {
+          "title": "Continue shopping",
+          "desc": "Browse our products"
+        }
+      }
+    },
+    "orders": {
+      "title": "My orders",
+      "subtitle": "View and manage your orders",
+      "status": {
+        "pending": "Pending payment",
+        "processing": "Processing",
+        "shipped": "Shipped",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      },
+      "filter": {
+        "label": "Filter by status",
+        "all": "All orders"
+      },
+      "search": {
+        "label": "Search orders",
+        "placeholder": "Search by order number...",
+        "button": "Search"
+      },
+      "item": {
+        "placedAt": "Placed at: ",
+        "amount": "Amount:"
+      },
+      "actions": {
+        "viewDetail": "View details",
+        "cancel": "Cancel order"
+      },
+      "cancel": {
+        "confirm": "Are you sure you want to cancel this order? This action cannot be undone."
+      },
+      "empty": {
+        "title": "No orders yet",
+        "subtitle": "No purchase history found. Start exploring products now.",
+        "cta": "Start shopping"
+      },
+      "toast": {
+        "fetchFailed": "Failed to fetch orders",
+        "cancelSuccess": "Order cancelled successfully",
+        "cancelFailed": "Failed to cancel order",
+        "searchNotFound": "No matching orders found",
+        "searchFound": "Found {count} related order(s)"
+      },
+      "pagination": {
+        "summary": "Total {total} orders | Page {page} / {totalPages}"
+      }
+    },
+    "orderDetail": {
+      "title": "Order details",
+      "backToList": "Back to orders",
+      "actions": {
+        "cancelling": "Cancelling..."
+      },
+      "status": {
+        "current": "Current status",
+        "placedOn": "Placed on"
+      },
+      "items": {
+        "title": "Items",
+        "count": "{count} item(s)",
+        "unitPrice": "Unit price: ",
+        "quantity": "Qty: ",
+        "total": "Total"
+      },
+      "shipping": {
+        "title": "Shipping",
+        "name": "Recipient",
+        "phone": "Phone",
+        "address": "Address"
+      },
+      "history": {
+        "title": "Order activity"
+      },
+      "notes": {
+        "title": "Buyer note"
+      },
+      "notFound": {
+        "title": "Order not found",
+        "back": "Back to orders"
+      },
+      "toast": {
+        "fetchFailed": "Failed to fetch order details",
+        "cancelSuccess": "Order cancelled"
+      }
+    },
+    "profile": {
+      "title": "Profile",
+      "subtitle": "Manage your account information and security settings",
+      "basic": {
+        "title": "Basic info",
+        "username": {
+          "label": "Username",
+          "placeholder": "Your display name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Your email address"
+        },
+        "actions": {
+          "saving": "Saving...",
+          "save": "Save changes"
+        }
+      },
+      "password": {
+        "title": "Security",
+        "current": {
+          "label": "Current password",
+          "placeholder": "Enter current password"
+        },
+        "new": {
+          "label": "New password",
+          "placeholder": "At least 6 characters"
+        },
+        "confirm": {
+          "label": "Confirm new password",
+          "placeholder": "Re-enter new password"
+        },
+        "actions": {
+          "processing": "Processing...",
+          "change": "Change password"
+        },
+        "validation": {
+          "minLength": "New password must be at least 6 characters",
+          "mismatch": "Passwords do not match"
+        }
+      },
+      "meta": {
+        "uidLabel": "Account ID",
+        "uidValue": "UID: {id}",
+        "createdAt": "Joined",
+        "status": "Account status",
+        "verified": "Verified",
+        "unknown": "-"
+      },
+      "toast": {
+        "updateSuccess": "Profile updated successfully",
+        "updateFailed": "Update failed. Please try again.",
+        "passwordSuccess": "Password updated successfully",
+        "passwordFailed": "Failed to update password. Please try again."
+      }
+    },
+    "addresses": {
+      "title": "Addresses",
+      "subtitle": "Manage shipping addresses to ensure accurate delivery",
+      "actions": {
+        "add": "Add new address",
+        "edit": "Edit",
+        "setDefault": "Set default",
+        "deleteAria": "Delete address"
+      },
+      "badges": {
+        "default": "Default"
+      },
+      "item": {
+        "postalCode": "Postal code: "
+      },
+      "form": {
+        "createTitle": "Add shipping address",
+        "editTitle": "Edit shipping address",
+        "receiverName": {
+          "label": "Recipient name",
+          "placeholder": "Enter recipient name"
+        },
+        "receiverPhone": {
+          "label": "Phone",
+          "placeholder": "Enter phone number"
+        },
+        "province": {
+          "label": "State/Province",
+          "placeholder": "e.g. Guangdong"
+        },
+        "city": {
+          "label": "City",
+          "placeholder": "e.g. Shenzhen"
+        },
+        "district": {
+          "label": "District",
+          "placeholder": "e.g. Nanshan"
+        },
+        "postalCode": {
+          "label": "Postal code",
+          "placeholder": "Optional"
+        },
+        "detailAddress": {
+          "label": "Address",
+          "placeholder": "Street, building, room number, etc."
+        },
+        "isDefault": "Set as default address",
+        "actions": {
+          "submitting": "Submitting...",
+          "save": "Save",
+          "update": "Update",
+          "cancel": "Cancel"
+        }
+      },
+      "empty": {
+        "title": "No addresses",
+        "subtitle": "You haven't added any shipping address yet. Add one for faster checkout.",
+        "cta": "Add address"
+      },
+      "delete": {
+        "confirm": "Are you sure you want to delete this address? This action cannot be undone."
+      },
+      "toast": {
+        "fetchFailed": "Failed to fetch addresses",
+        "deleteSuccess": "Address deleted",
+        "deleteFailed": "Failed to delete",
+        "setDefaultSuccess": "Default address updated",
+        "setDefaultFailed": "Failed to set default",
+        "updateSuccess": "Address updated",
+        "createSuccess": "Address added",
+        "saveFailed": "Failed to save"
+      }
+    },
+    "favorites": {
+      "title": "Favorites",
+      "subtitle": "You have {count} favorite item(s)",
+      "actions": {
+        "continueShopping": "Continue shopping",
+        "addToCart": "Add to cart",
+        "removeTitle": "Remove from favorites",
+        "viewDetailTitle": "View details"
+      },
+      "badges": {
+        "featured": "Featured"
+      },
+      "empty": {
+        "title": "Your favorites list is empty",
+        "subtitle": "No favorites yet. Browse products and save what you love.",
+        "cta": "Explore products"
+      },
+      "toast": {
+        "fetchFailed": "Failed to fetch favorites",
+        "removeSuccess": "Removed from favorites",
+        "actionFailed": "Something went wrong",
+        "addToCartSuccess": "Added to cart",
+        "addToCartFailed": "Failed to add to cart"
+      }
+    }
+  },
+  "common": {
+    "tryAgain": "Something went wrong. Please try again.",
+    "sending": "Sending..."
+  }
+}

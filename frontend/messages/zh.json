@@ -1,0 +1,552 @@
+{
+  "nav": {
+    "home": "首页",
+    "products": "全部商品",
+    "about": "关于我们"
+  },
+  "auth": {
+    "login": {
+      "success": "欢迎回来！登录成功",
+      "failed": "登录失败，请检查邮箱和密码",
+      "backToStore": "返回商城",
+      "title": "欢迎回来",
+      "noAccount": "还没有账户？",
+      "signUpNow": "立即注册",
+      "forgotPassword": "忘记密码？",
+      "loading": "安全登录中...",
+      "cta": "立即登录"
+    },
+    "register": {
+      "passwordMin": "密码至少需要 6 位字符",
+      "passwordMismatch": "两次输入的密码不一致",
+      "successAutoLogin": "注册成功！正在为您跳转...",
+      "successNeedConfirm": "注册成功！请前往邮箱完成验证后再登录",
+      "failed": "注册失败，请稍后重试",
+      "backToLogin": "返回登录",
+      "title": "创建新账户",
+      "haveAccount": "已有账户？",
+      "signInNow": "立即登录",
+      "setPassword": "设置密码",
+      "confirmPassword": "确认密码",
+      "loading": "正在为您创建账户...",
+      "cta": "立即注册"
+    },
+    "forgot": {
+      "successToast": "重置邮件已发送，请查收",
+      "backToLogin": "返回登录",
+      "title": "重置密码",
+      "subtitle": "我们将向您的邮箱发送重置密码的指引",
+      "sentTitle": "邮件已发送！",
+      "sentBody1": "请检查您的邮箱",
+      "sentBody2": "，并按照邮件中的说明重置您的密码。",
+      "retry": "没收到？尝试更换邮箱再次发送",
+      "emailPlaceholder": "请输入注册时使用的邮箱",
+      "cta": "发送重置邮件"
+    },
+    "common": {
+      "email": "邮箱地址",
+      "password": "密码",
+      "username": "用户名"
+    }
+  },
+  "footer": {
+    "quickLinks": "快速链接",
+    "support": "客户支持",
+    "contact": "联系方式",
+    "description": "致力于为客户提供全球精选、品质卓越的优质商品，让购物成为一种极致的生活享受。",
+    "links": {
+      "products": "全部商品",
+      "about": "关于我们",
+      "contact": "联系我们"
+    },
+    "supportLinks": {
+      "faq": "常见问题",
+      "shipping": "配送信息",
+      "returns": "退换货政策"
+    },
+    "contactLabels": {
+      "email": "服务邮箱",
+      "phone": "热线电话"
+    },
+    "bottom": {
+      "copyright": "© 2026 E-Shop. 全力打造卓越购物体验",
+      "privacy": "隐私政策",
+      "terms": "服务条款"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "我们的故事",
+      "titleLine1": "用心连接",
+      "titleLine2": "美好的每一刻",
+      "subtitle": "自成立以来，我们始终致力于为客户提供全球精选、品质卓越的优质商品。我们相信，购物不仅仅是获得一件商品，更是一种对美好生活的追求。"
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "p1": "在快速发展的数字时代，我们不仅仅是一个电商平台，更是一个致力于提升生活品质的探索者。我们深入全球供应链，挖掘那些具有独特设计感、卓越功能性和极致性价比的商品。",
+      "p2": "我们的团队由一群充满激情和创新精神的专业人士组成。从选品、质检到物流和客服，每一个环节我们都精益求精，只为确保您在 E-Shop 的每一次点击都能换来一份惊喜与满意。"
+    },
+    "values": {
+      "integrity": {
+        "title": "诚信为本",
+        "desc": "以诚信赢得客户信任，是我们立足的根本"
+      },
+      "quality": {
+        "title": "质量第一",
+        "desc": "严格把控商品质量，每一件都是精选好物"
+      },
+      "customerFirst": {
+        "title": "客户至上",
+        "desc": "始终将客户需求放在首位，提供极致服务"
+      },
+      "innovation": {
+        "title": "持续创新",
+        "desc": "不断改进和优化服务，引领购物新风尚"
+      }
+    },
+    "contact": {
+      "title": "联系我们",
+      "phoneLabel": "客服热线",
+      "emailLabel": "电子邮箱",
+      "hoursLabel": "服务时间",
+      "hoursValue": "周一至周日 9:00-21:00",
+      "addressLabel": "公司地址",
+      "addressLine1": "中国 · 北京市朝阳区",
+      "addressLine2": "科技创意园区 88 号",
+      "backToStore": "返回商城"
+    },
+    "join": {
+      "title": "加入我们?",
+      "subtitle": "如果您也对打造极致购物体验充满热情，欢迎加入我们的精英团队。",
+      "cta": "查看职位"
+    }
+  },
+  "home": {
+    "exploreNow": "立即探索",
+    "welcomeTitle": "欢迎来到理想商城",
+    "welcomeSubtitle": "甄选优质好物，为您打造精致生活",
+    "startShopping": "立即开启购物之旅",
+    "hot": "热门推荐",
+    "viewAll": "查看全部商品"
+  },
+  "products": {
+    "title": "探索商品",
+    "subtitle": "发现为您精心挑选的优质好物",
+    "searchPlaceholder": "搜索商品...",
+    "sort": {
+      "default": "默认排序",
+      "priceAsc": "价格从低到高",
+      "priceDesc": "价格从高到低",
+      "name": "名称 A-Z"
+    },
+    "categories": "商品分类",
+    "allProducts": "全部商品",
+    "promo": {
+      "badge": "新品特惠",
+      "titleLine1": "全场好物",
+      "titleLine2": "8折起",
+      "cta": "立即领取"
+    },
+    "new": "新品上市",
+    "empty": {
+      "title": "未找到相关商品",
+      "subtitle": "换个关键词搜索或者选择其他分类看看吧",
+      "clear": "清除所有过滤条件"
+    },
+    "detail": {
+      "loading": "加载中...",
+      "backToList": "返回商品列表",
+      "notFound": {
+        "title": "商品不存在",
+        "backToList": "返回商品列表"
+      },
+      "badges": {
+        "authentic": "官方正品",
+        "inStockSale": "现货发售"
+      },
+      "sections": {
+        "description": "商品描述",
+        "related": "猜你喜欢"
+      },
+      "stock": {
+        "label": "库存状态",
+        "inStock": "充足 ({count} 件)",
+        "outOfStock": "暂时缺货"
+      },
+      "sku": "商品编号",
+      "quantity": "选择数量",
+      "actions": {
+        "addToCart": "加入购物车",
+        "favorite": "收藏",
+        "favorited": "已收藏"
+      },
+      "toast": {
+        "loginToFavorite": "请先登录后再收藏商品",
+        "favorited": "已添加至收藏夹",
+        "unfavorited": "已从收藏夹移除",
+        "addedToCart": "已添加 {count} 件 {name} 到购物车！",
+        "addToCartFailed": "添加到购物车失败，请重试"
+      }
+    }
+  },
+  "cart": {
+    "title": "购物车",
+    "addToCart": "加入购物车",
+    "added": "已添加 {name} 到购物车",
+    "loading": "加载中...",
+    "pageTitle": "我的购物车",
+    "pageSubtitle": "您挑选的宝贝都在这里了",
+    "clear": {
+      "button": "清空购物车",
+      "confirm": "确定要清空购物车吗？"
+    },
+    "empty": {
+      "title": "购物车空空如也",
+      "subtitle": "既然来了，不如去看看我们的精选好物，说不定就有你喜欢的呢？",
+      "cta": "去逛逛商品"
+    },
+    "item": {
+      "removeAria": "移除商品",
+      "subtotal": "小计: "
+    },
+    "summary": {
+      "title": "订单摘要",
+      "subtotal": "商品小计",
+      "shipping": "运费估计",
+      "freeShipping": "免费配送",
+      "freeShippingTipPrefix": "还差 ",
+      "freeShippingTipSuffix": " 即可享受免运费特惠",
+      "total": "应付总额"
+    },
+    "actions": {
+      "checkout": "立即结算",
+      "continueShopping": "继续购物"
+    },
+    "securityNote": "100% 安全支付保证",
+    "toast": {
+      "defaultItemName": "商品",
+      "removed": "已从购物车移除 {name}",
+      "cleared": "购物车已清空"
+    }
+  },
+  "common": {
+    "tryAgain": "操作失败，请重试",
+    "sending": "正在发送中..."
+  },
+  "account": {
+    "auth": {
+      "toast": {
+        "expired": "登录状态已过期，请重新登录",
+        "banned": "您的账户已被封禁，请联系客服"
+      }
+    },
+    "menu": {
+      "title": "我的账户",
+      "profile": "个人中心",
+      "orders": "我的订单",
+      "favorites": "我的收藏",
+      "logout": "退出登录"
+    },
+    "sidebar": {
+      "dashboard": "仪表盘",
+      "profile": "个人资料",
+      "addresses": "地址管理",
+      "favorites": "我的收藏",
+      "orders": "我的订单"
+    },
+    "logout": {
+      "confirm": "确定要退出登录吗？"
+    },
+    "home": {
+      "greeting": {
+        "morning": "早上好，",
+        "noon": "中午好，",
+        "afternoon": "下午好，",
+        "evening": "晚上好，",
+        "lateNight": "深夜好，"
+      },
+      "welcome": "欢迎回到您的个人控制面板。在这里您可以轻松追踪订单、管理收货地址以及查看您心仪的收藏。",
+      "cards": {
+        "orders": "全部订单",
+        "favorites": "商品收藏",
+        "addresses": "地址管理"
+      },
+      "units": {
+        "orders": "单",
+        "items": "件",
+        "addresses": "处"
+      },
+      "todo": {
+        "title": "订单状态追踪",
+        "pendingPayment": "待付款",
+        "processing": "处理中",
+        "shipped": "待收货",
+        "completed": "已完成"
+      },
+      "overview": {
+        "title": "账户概览"
+      },
+      "quickActions": {
+        "title": "快捷操作",
+        "profile": {
+          "title": "编辑个人资料",
+          "desc": "更新您的个人信息"
+        },
+        "addresses": {
+          "title": "管理收货地址",
+          "desc": "添加或编辑配送地址"
+        },
+        "orders": {
+          "title": "查看我的订单",
+          "desc": "订单历史和状态"
+        },
+        "shop": {
+          "title": "继续购物",
+          "desc": "浏览我们的商品"
+        }
+      }
+    },
+    "orders": {
+      "title": "我的订单",
+      "subtitle": "查看和管理您的订单",
+      "status": {
+        "pending": "待付款",
+        "processing": "处理中",
+        "shipped": "已发货",
+        "completed": "已完成",
+        "cancelled": "已取消"
+      },
+      "filter": {
+        "label": "按状态筛选",
+        "all": "全部订单"
+      },
+      "search": {
+        "label": "订单搜索",
+        "placeholder": "输入订单号搜索...",
+        "button": "搜索"
+      },
+      "item": {
+        "placedAt": "下单时间：",
+        "amount": "订单金额:"
+      },
+      "actions": {
+        "viewDetail": "查看详情",
+        "cancel": "取消订单"
+      },
+      "cancel": {
+        "confirm": "确定要取消这个订单吗？此操作不可撤销。"
+      },
+      "empty": {
+        "title": "暂无相关订单",
+        "subtitle": "还没有任何购物记录？快去商城挑选心仪的商品吧。",
+        "cta": "去开启购物之旅"
+      },
+      "toast": {
+        "fetchFailed": "获取订单列表失败",
+        "cancelSuccess": "订单已成功取消",
+        "cancelFailed": "取消订单失败",
+        "searchNotFound": "未找到匹配的订单",
+        "searchFound": "为您找到 {count} 个相关订单"
+      },
+      "pagination": {
+        "summary": "共 {total} 个订单 | 第 {page} / {totalPages} 页"
+      }
+    },
+    "orderDetail": {
+      "title": "订单详情",
+      "backToList": "返回列表",
+      "actions": {
+        "cancelling": "取消中..."
+      },
+      "status": {
+        "current": "当前状态",
+        "placedOn": "下单日期"
+      },
+      "items": {
+        "title": "商品清单",
+        "count": "共 {count} 项商品",
+        "unitPrice": "单价: ",
+        "quantity": "数量: ",
+        "total": "订单应付总额"
+      },
+      "shipping": {
+        "title": "收货信息",
+        "name": "收货人",
+        "phone": "联系电话",
+        "address": "收货地址"
+      },
+      "history": {
+        "title": "订单动态"
+      },
+      "notes": {
+        "title": "买家备注"
+      },
+      "notFound": {
+        "title": "订单不存在",
+        "back": "返回订单列表"
+      },
+      "toast": {
+        "fetchFailed": "获取订单详情失败",
+        "cancelSuccess": "订单已取消"
+      }
+    },
+    "profile": {
+      "title": "个人资料",
+      "subtitle": "管理您的账户基本信息和安全设置",
+      "basic": {
+        "title": "基本信息",
+        "username": {
+          "label": "用户名",
+          "placeholder": "您的展示名称"
+        },
+        "email": {
+          "label": "邮箱地址",
+          "placeholder": "您的电子邮箱"
+        },
+        "actions": {
+          "saving": "保存中...",
+          "save": "保存修改"
+        }
+      },
+      "password": {
+        "title": "安全设置",
+        "current": {
+          "label": "当前密码",
+          "placeholder": "请输入原密码"
+        },
+        "new": {
+          "label": "新密码",
+          "placeholder": "至少 6 位字符"
+        },
+        "confirm": {
+          "label": "确认新密码",
+          "placeholder": "请再次输入新密码"
+        },
+        "actions": {
+          "processing": "处理中...",
+          "change": "修改密码"
+        },
+        "validation": {
+          "minLength": "新密码至少需要 6 位字符",
+          "mismatch": "两次输入的密码不一致"
+        }
+      },
+      "meta": {
+        "uidLabel": "账户唯一标识",
+        "uidValue": "UID: {id}",
+        "createdAt": "注册日期",
+        "status": "账户状态",
+        "verified": "已认证",
+        "unknown": "-"
+      },
+      "toast": {
+        "updateSuccess": "个人资料更新成功！",
+        "updateFailed": "更新失败，请稍后重试",
+        "passwordSuccess": "密码修改成功！",
+        "passwordFailed": "修改密码失败，请稍后重试"
+      }
+    },
+    "addresses": {
+      "title": "地址管理",
+      "subtitle": "管理您的收货地址，确保商品准确送达",
+      "actions": {
+        "add": "添加新地址",
+        "edit": "编辑",
+        "setDefault": "设为默认",
+        "deleteAria": "删除地址"
+      },
+      "badges": {
+        "default": "默认地址"
+      },
+      "item": {
+        "postalCode": "邮编: "
+      },
+      "form": {
+        "createTitle": "添加新收货地址",
+        "editTitle": "编辑收货地址",
+        "receiverName": {
+          "label": "收货人姓名",
+          "placeholder": "请输入收货人姓名"
+        },
+        "receiverPhone": {
+          "label": "联系电话",
+          "placeholder": "请输入手机号码"
+        },
+        "province": {
+          "label": "所在省份",
+          "placeholder": "例如：广东省"
+        },
+        "city": {
+          "label": "所在城市",
+          "placeholder": "例如：深圳市"
+        },
+        "district": {
+          "label": "区/县",
+          "placeholder": "例如：南山区"
+        },
+        "postalCode": {
+          "label": "邮政编码",
+          "placeholder": "可选填"
+        },
+        "detailAddress": {
+          "label": "详细地址",
+          "placeholder": "街道、楼牌号等详细信息"
+        },
+        "isDefault": "设为默认收货地址",
+        "actions": {
+          "submitting": "提交中...",
+          "save": "立即保存",
+          "update": "更新地址",
+          "cancel": "取消返回"
+        }
+      },
+      "empty": {
+        "title": "暂无收货地址",
+        "subtitle": "您还没有添加任何收货地址，添加一个地址以便更快捷地完成下单。",
+        "cta": "立即添加地址"
+      },
+      "delete": {
+        "confirm": "确定要删除这个地址吗？此操作不可撤销。"
+      },
+      "toast": {
+        "fetchFailed": "获取地址列表失败",
+        "deleteSuccess": "地址已成功删除",
+        "deleteFailed": "删除失败",
+        "setDefaultSuccess": "默认地址已设置",
+        "setDefaultFailed": "设置失败",
+        "updateSuccess": "地址更新成功！",
+        "createSuccess": "地址添加成功！",
+        "saveFailed": "保存失败"
+      }
+    },
+    "favorites": {
+      "title": "我的收藏",
+      "subtitle": "共发现 {count} 件您心仪的商品",
+      "actions": {
+        "continueShopping": "继续寻找好物",
+        "addToCart": "加入购物车",
+        "removeTitle": "取消收藏",
+        "viewDetailTitle": "查看详情"
+      },
+      "badges": {
+        "featured": "精品推荐"
+      },
+      "empty": {
+        "title": "收藏夹空空如也",
+        "subtitle": "还没有任何心动的感觉？去商城逛逛，发现更多让您爱不释手的商品。",
+        "cta": "立即去探索"
+      },
+      "toast": {
+        "fetchFailed": "获取收藏列表失败",
+        "removeSuccess": "已从收藏夹移除",
+        "actionFailed": "操作失败",
+        "addToCartSuccess": "已成功添加到购物车",
+        "addToCartFailed": "添加到购物车失败"
+      }
+    }
+  },
+  "common": {
+    "tryAgain": "操作失败，请重试",
+    "sending": "正在发送中..."
+  }
+}

@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production
+build/
+dist/
+.next/
+out/
+
+# Misc
+.DS_Store
+*.pem
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Strapi
+.cache/
+.tmp/
+backend/.cache/
+backend/.tmp/
+backend/public/uploads/*
+!backend/public/uploads/.gitkeep
+backend/build/
+backend/.strapi-updater.json
+backend/exports/
+
+# Database
+*.sqlite
+*.sqlite3
+postgres-data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db

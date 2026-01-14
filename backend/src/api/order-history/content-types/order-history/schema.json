@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_histories",
+  "info": {
+    "singularName": "order-history",
+    "pluralName": "order-histories",
+    "displayName": "OrderHistory",
+    "description": "订单状态变更历史记录 - 记录每次订单状态的变更，包括旧状态、新状态、变更时间和操作人"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "histories"
+    },
+    "fromStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "processing", "shipped", "completed", "cancelled"],
+      "required": false
+    },
+    "toStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "processing", "shipped", "completed", "cancelled"],
+      "required": true
+    },
+    "changedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "note": {
+      "type": "text"
+    },
+    "changedAt": {
+      "type": "datetime",
+      "required": true,
+      "default": "now"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_addresses",
+  "info": {
+    "singularName": "user-address",
+    "pluralName": "user-addresses",
+    "displayName": "UserAddress",
+    "description": "用户收货地址 - 管理用户的收货地址信息，支持设置默认地址"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "receiverName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "receiverPhone": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20
+    },
+    "province": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "district": {
+      "type": "string",
+      "required": true
+    },
+    "detailAddress": {
+      "type": "text",
+      "required": true
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
