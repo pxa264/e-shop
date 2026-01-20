@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+.env
+.env.*
+.cache
+.tmp
+.strapi-updater.json
+build
+dist
+*.md
+.git
+.gitignore
+.DS_Store
+public/uploads/*
+!public/uploads/.gitkeep

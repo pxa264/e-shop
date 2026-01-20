@@ -41,6 +41,10 @@ module.exports = [
         'http://127.0.0.1:1337',
         'http://localhost:8080',
         'http://127.0.0.1:8080',
+        'http://192.168.110.90:8089',
+        'http://192.168.110.90:1337',
+        'http://192.168.110.90:3000',
+        'https://strapi.mulink.link',
       ],
       headers: [
         'Content-Type',

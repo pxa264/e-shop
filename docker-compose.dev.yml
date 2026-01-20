@@ -3,54 +3,68 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: ecommerce-postgres
-    restart: unless-stopped
-    env_file:
-      - ./.env
+    container_name: ecommerce-postgres-dev
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - "127.0.0.1:5438:5432"  # 只暴露到本地，方便开发工具连接
+      - "127.0.0.1:5438:5432"  # 暴露到本地，方便 Navicat 等工具连接
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
       - ecommerce-network
 
   strapi:
-    image: strapi_project-strapi:latest
-    container_name: ecommerce-strapi
-    restart: unless-stopped
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: development
+    container_name: ecommerce-strapi-dev
     env_file:
       - ./.env
+    environment:
+      NODE_ENV: development
+      DATABASE_HOST: postgres
+    ports:
+      - "127.0.0.1:1337:1337"  # 直接访问便于调试
     volumes:
       - ./backend:/app
       - /app/node_modules
+      - /app/.cache
+      - /app/.tmp
       - strapi-uploads:/app/public/uploads
     depends_on:
       - postgres
     networks:
       - ecommerce-network
-    command: sh -c "npm config set registry https://registry.npmmirror.com && npm install && npm run develop"
+    command: sh -c "npm config set registry https://registry.npmmirror.com && npm install --legacy-peer-deps && npm run develop"
+    stdin_open: true
+    tty: true
 
   frontend:
-    image: strapi_project-frontend:latest
-    container_name: ecommerce-frontend
-    restart: unless-stopped
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+    container_name: ecommerce-frontend-dev
     env_file:
       - ./.env
     environment:
+      NODE_ENV: development
       PORT: 3000
-      NEXT_PUBLIC_STRAPI_API_URL: https://strapi.mulink.link
+      # NEXT_PUBLIC_STRAPI_API_URL 从 .env 文件读取
       HTTP_PROXY: ""
       HTTPS_PROXY: ""
       http_proxy: ""
       https_proxy: ""
       NO_PROXY: "*"
       no_proxy: "*"
+    ports:
+      - "127.0.0.1:3000:3000"  # 直接访问便于调试
     volumes:
-      # - ./frontend:/app  # 生产环境注释掉，使用镜像内代码
+      - ./frontend:/app
+      - /app/node_modules
       - /app/.next
     depends_on:
       - strapi
@@ -60,15 +74,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: ecommerce-nginx
-    restart: unless-stopped
-    environment:
-      HTTP_PROXY: ""
-      HTTPS_PROXY: ""
-      http_proxy: ""
-      https_proxy: ""
-      NO_PROXY: "*"
-      no_proxy: "*"
+    container_name: ecommerce-nginx-dev
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:

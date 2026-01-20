@@ -6,12 +6,17 @@ const withNextIntl = require('next-intl/plugin')('./i18n/request.js')
 
 const nextConfig = {
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'strapi.mulink.link'],
     remotePatterns: [
       {
         protocol: 'http',
         hostname: 'localhost',
         port: '1337',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'strapi.mulink.link',
         pathname: '/uploads/**',
       },
     ],
