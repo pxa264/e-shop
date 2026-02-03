@@ -5,17 +5,11 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const withNextIntl = require('next-intl/plugin')('./i18n/request.js')
 
 const nextConfig = {
-  output: 'standalone',
+  // 不使用 standalone，直接运行开发服务器
   typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
     ignoreBuildErrors: true,
   },
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
   images: {
