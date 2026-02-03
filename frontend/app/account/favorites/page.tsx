@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Link, useRouter } from '@/navigation'
@@ -198,7 +200,7 @@ export default function FavoritesPage() {
                 {/* 商品信息 */}
                 <div className="p-6 flex-1 flex flex-col">
                   <Link
-                    href={`/products/${product.slug}`}
+                    href={`/products/${product.id}`}
                     className="group/link block mb-3"
                   >
                     <h3 className="font-black text-lg text-gray-900 group-hover/link:text-primary-600 transition-colors line-clamp-1">
@@ -215,7 +217,7 @@ export default function FavoritesPage() {
                       ¥{product.price.toFixed(2)}
                     </span>
                     <Link
-                      href={`/products/${product.slug}`}
+                      href={`/products/${product.id}`}
                       className="text-gray-400 hover:text-primary-500 transition-colors"
                       title={t('account.favorites.actions.viewDetailTitle')}
                     >

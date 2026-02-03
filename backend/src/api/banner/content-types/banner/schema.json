@@ -64,6 +64,11 @@
           "localized": true
         }
       }
+    },
+    "merchant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "admin::user"
     }
   }
 }

@@ -51,3 +51,6 @@ postgres-data/
 
 # OS
 Thumbs.db
+*.tar
+.gemini-clipboard/
+.env.backup

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '../globals.css'
 import { Providers } from '../Providers'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
@@ -35,6 +36,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Providers>
         <div className="flex flex-col min-h-screen">
+          <Header />
           <div className="flex-grow">{children}</div>
           <Footer />
         </div>

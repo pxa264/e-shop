@@ -5,6 +5,8 @@
 import documentation from "@strapi/plugin-documentation/strapi-admin";
 import i18N from "@strapi/plugin-i18n/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
+import customApi from "../../src/plugins/custom-api/strapi-admin";
+import opsDashboard from "../../src/plugins/ops-dashboard/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 import customisations from "../../src/admin/app.js";
@@ -16,5 +18,7 @@ renderAdmin(document.getElementById("strapi"), {
     documentation: documentation,
     i18n: i18N,
     "users-permissions": usersPermissions,
+    "custom-api": customApi,
+    "ops-dashboard": opsDashboard,
   },
 });

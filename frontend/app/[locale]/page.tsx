@@ -1,9 +1,11 @@
 'use client'
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react'
-import Header from '@/components/Header'
+import CategoryNavigation from '@/components/CategoryNavigation'
 import { getProducts, fetchBannersByLocale, getImageUrl } from '@/lib/api'
 import toast from 'react-hot-toast'
 import { useLocale, useTranslations } from 'next-intl'
@@ -131,9 +133,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
-      <Header />
-
+    <div className="bg-[#fafafa]">
       <main>
         {banners.data && banners.data.length > 0 ? (
           <section className="relative h-[500px] md:h-[600px] bg-gray-900 overflow-hidden">
@@ -207,6 +207,8 @@ export default function Home() {
             </div>
           </section>
         )}
+
+        <CategoryNavigation />
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="flex items-end justify-between mb-12">

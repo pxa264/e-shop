@@ -29,6 +29,7 @@ interface User {
   email: string;
   phone?: string;
   avatar?: string;
+  createdAt?: string;
 }
 
 // 认证上下文类型
@@ -52,7 +53,7 @@ interface AuthProviderProps {
 }
 
 // API 基础 URL（浏览器端通过 nginx 代理访问）
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:8080';
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337';
 
 /**
  * AuthProvider - 认证上下文提供者

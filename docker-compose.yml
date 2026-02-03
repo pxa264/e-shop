@@ -42,7 +42,7 @@ services:
       - ./.env
     environment:
       PORT: 3000
-      NEXT_PUBLIC_STRAPI_API_URL: https://strapi.mulink.link
+      NEXT_PUBLIC_STRAPI_API_URL: http://localhost:8089
       HTTP_PROXY: ""
       HTTPS_PROXY: ""
       http_proxy: ""
@@ -50,7 +50,8 @@ services:
       NO_PROXY: "*"
       no_proxy: "*"
     volumes:
-      # - ./frontend:/app  # 生产环境注释掉，使用镜像内代码
+      - ./frontend:/app  # 开发环境挂载代码
+      - /app/node_modules
       - /app/.next
     depends_on:
       - strapi

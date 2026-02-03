@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * 个人中心布局
  *
@@ -15,7 +17,6 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, usePathname } from 'next/navigation';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import { Link } from '@/navigation'
-import Header from '@/components/Header';
 import { 
   LayoutDashboard, 
   UserCircle, 
@@ -59,8 +60,6 @@ export default function AccountLayout({
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-[#fafafa]">
-        <Header />
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col lg:flex-row gap-10">
             {/* 侧边栏 */}

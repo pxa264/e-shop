@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * 个人中心首页
  *
@@ -13,16 +15,28 @@ import { useEffect, useState } from 'react';
 import { getMyStatistics } from '@/lib/api';
 import { Link, useRouter } from '@/navigation'
 import { useAuth } from '@/contexts/AuthContext';
-import { 
-  Package, 
-  Heart, 
-  MapPin, 
+import {
+  Package,
+  Heart,
+  MapPin,
   ChevronRight,
   User,
   ShoppingBag
 } from 'lucide-react';
 import { useTranslations } from 'next-intl'
 import toast from 'react-hot-toast'
+
+interface Statistics {
+  orders: {
+    total: number;
+    pending: number;
+    processing: number;
+    shipped: number;
+    completed: number;
+  };
+  addressCount: number;
+  wishlistCount: number;
+}
 
 export default function AccountHomePage() {
   const { user, logout } = useAuth();

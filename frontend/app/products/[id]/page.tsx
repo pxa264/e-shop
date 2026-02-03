@@ -1,10 +1,11 @@
 'use client'
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react'
 import { Link } from '@/navigation'
 import { useParams } from 'next/navigation'
 import { ArrowLeft, Plus, Minus, ShoppingCart, Heart } from 'lucide-react'
-import Header from '@/components/Header'
 import { useAuth } from '@/contexts/AuthContext'
 import { toggleWishlist, checkWishlist, getImageUrl, getAPIUrl } from '@/lib/api'
 import toast from 'react-hot-toast'
@@ -18,6 +19,7 @@ export default function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1)
   const [loading, setLoading] = useState(true)
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const [selectedVariant, setSelectedVariant] = useState<any>(null)
   const [relatedProducts, setRelatedProducts] = useState<any[]>([])
   const [isFavorited, setIsFavorited] = useState(false)
   const [favoriteLoading, setFavoriteLoading] = useState(false)
@@ -32,6 +34,13 @@ export default function ProductDetailPage() {
       checkFavoriteStatus()
     }
   }, [isAuthenticated, product])
+
+  // 自动选择第一个变体
+  useEffect(() => {
+    if (product && product.attributes.variants && product.attributes.variants.length > 0) {
+      setSelectedVariant(product.attributes.variants[0])
+    }
+  }, [product])
 
   const checkFavoriteStatus = async () => {
     try {
@@ -95,31 +104,57 @@ export default function ProductDetailPage() {
 
   const handleAddToCart = () => {
     try {
+      // Check if product has variants but none is selected
+      if (product.attributes.variants && product.attributes.variants.length > 0 && !selectedVariant) {
+        toast.error(t('products.detail.toast.selectVariant') || 'Please select a variant')
+        return
+      }
+
       const cart = JSON.parse(localStorage.getItem('cart') || '[]')
-      const existingItem = cart.find((item: any) => item.id === product.id)
-      
+
+      // Use variant price if available, otherwise use product price
+      const price = selectedVariant ? selectedVariant.price : product.attributes.price
       const imageUrl = product.attributes.images?.data?.[0]?.attributes?.url || null
-      
+
+      // Create unique key for cart item (product + variant combination)
+      const cartItemKey = selectedVariant
+        ? `${product.id}-${selectedVariant.id}`
+        : `${product.id}`
+
+      const existingItem = cart.find((item: any) => {
+        if (selectedVariant) {
+          return item.id === product.id && item.variantId === selectedVariant.id
+        }
+        return item.id === product.id && !item.variantId
+      })
+
       const cartItem = {
         id: product.id,
         name: product.attributes.name,
-        price: product.attributes.price,
+        price: price,
         quantity: quantity,
-        image: imageUrl
+        image: imageUrl,
+        variantId: selectedVariant?.id || null,
+        variantName: selectedVariant?.name || null
       }
-      
+
       if (existingItem) {
         existingItem.quantity += quantity
       } else {
         cart.push(cartItem)
       }
-      
+
       localStorage.setItem('cart', JSON.stringify(cart))
       window.dispatchEvent(new Event('cartUpdated'))
+
+      const productName = selectedVariant
+        ? `${product.attributes.name} (${selectedVariant.name})`
+        : product.attributes.name
+
       toast.success(
         t('products.detail.toast.addedToCart', {
           count: quantity,
-          name: product.attributes.name,
+          name: productName,
         })
       )
     } catch (error) {
@@ -154,7 +189,6 @@ export default function ProductDetailPage() {
 
   return (
     <div className="min-h-screen bg-[#fafafa]">
-      <Header />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <nav className="mb-10">
           <Link href="/products" className="inline-flex items-center text-gray-500 hover:text-primary-600 transition-colors group font-bold">
@@ -224,8 +258,12 @@ export default function ProductDetailPage() {
                   {product.attributes.name}
                 </h1>
                 <div className="flex items-baseline space-x-4">
-                  <span className="text-5xl font-black text-primary-600">¥{product.attributes.price.toFixed(2)}</span>
-                  <span className="text-xl text-gray-400 line-through">¥{(product.attributes.price * 1.5).toFixed(2)}</span>
+                  <span className="text-5xl font-black text-primary-600">
+                    ¥{(selectedVariant ? selectedVariant.price : product.attributes.price).toFixed(2)}
+                  </span>
+                  <span className="text-xl text-gray-400 line-through">
+                    ¥{((selectedVariant ? selectedVariant.price : product.attributes.price) * 1.5).toFixed(2)}
+                  </span>
                 </div>
               </div>
 
@@ -236,12 +274,52 @@ export default function ProductDetailPage() {
                 </p>
               </div>
 
+              {/* Variant Selector */}
+              {product.attributes.variants && product.attributes.variants.length > 0 && (
+                <div className="mb-10 pt-8 border-t border-gray-50">
+                  <label className="block text-gray-400 text-xs font-black uppercase tracking-widest mb-4">
+                    {t('products.detail.selectVariant') || 'Select Variant'}
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {product.attributes.variants.map((variant: any, index: number) => (
+                      <button
+                        key={index}
+                        onClick={() => setSelectedVariant(variant)}
+                        disabled={variant.stock === 0}
+                        className={`p-4 rounded-xl border-2 transition-all text-left ${
+                          selectedVariant?.id === variant.id
+                            ? 'border-primary-600 bg-primary-50'
+                            : 'border-gray-200 hover:border-primary-300'
+                        } ${
+                          variant.stock === 0
+                            ? 'opacity-50 cursor-not-allowed'
+                            : 'cursor-pointer'
+                        }`}
+                      >
+                        <div className="flex justify-between items-start mb-2">
+                          <span className="font-black text-gray-900">{variant.name}</span>
+                          <span className="text-primary-600 font-black">¥{variant.price.toFixed(2)}</span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
+                          <span className={variant.stock > 0 ? 'text-green-500 font-bold' : 'text-red-500 font-bold'}>
+                            {variant.stock > 0 ? `${variant.stock} in stock` : 'Out of stock'}
+                          </span>
+                          {variant.sku && (
+                            <span className="text-gray-400 font-bold">SKU: {variant.sku}</span>
+                          )}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div className="space-y-6 mb-10 pt-8 border-t border-gray-50">
                 <div className="flex items-center justify-between text-sm font-bold">
                   <span className="text-gray-400 uppercase tracking-wider">{t('products.detail.stock.label')}</span>
-                  <span className={product.attributes.stock > 0 ? 'text-green-500' : 'text-red-500'}>
-                    {product.attributes.stock > 0
-                      ? t('products.detail.stock.inStock', { count: product.attributes.stock })
+                  <span className={(selectedVariant ? selectedVariant.stock : product.attributes.stock) > 0 ? 'text-green-500' : 'text-red-500'}>
+                    {(selectedVariant ? selectedVariant.stock : product.attributes.stock) > 0
+                      ? t('products.detail.stock.inStock', { count: selectedVariant ? selectedVariant.stock : product.attributes.stock })
                       : t('products.detail.stock.outOfStock')}
                   </span>
                 </div>
@@ -263,8 +341,8 @@ export default function ProductDetailPage() {
                     <Minus className="w-5 h-5" />
                   </button>
                   <span className="text-xl font-black w-16 text-center text-gray-900">{quantity}</span>
-                  <button 
-                    onClick={() => setQuantity(Math.min(product.attributes.stock, quantity + 1))}
+                  <button
+                    onClick={() => setQuantity(Math.min((selectedVariant ? selectedVariant.stock : product.attributes.stock), quantity + 1))}
                     className="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-white hover:text-primary-600 hover:shadow-soft transition-all active:scale-90"
                   >
                     <Plus className="w-5 h-5" />
@@ -273,14 +351,14 @@ export default function ProductDetailPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 mt-auto">
-                <button 
+                <button
                   onClick={handleAddToCart}
-                  disabled={product.attributes.stock === 0}
+                  disabled={(selectedVariant ? selectedVariant.stock : product.attributes.stock) === 0}
                   className="flex-[2] bg-primary-600 text-white py-5 px-8 rounded-2xl font-black text-lg hover:bg-primary-700 transition-all hover:shadow-premium active:scale-[0.98] disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed flex items-center justify-center space-x-3 shadow-soft"
                 >
                   <ShoppingCart className="w-6 h-6" />
                   <span>
-                    {product.attributes.stock === 0
+                    {(selectedVariant ? selectedVariant.stock : product.attributes.stock) === 0
                       ? t('products.detail.stock.outOfStock')
                       : t('products.detail.actions.addToCart')}
                   </span>

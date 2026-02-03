@@ -32,8 +32,8 @@ export const getAPIUrl = () => {
   if (typeof window === 'undefined') {
     return process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://strapi:1337'
   }
-  // 浏览器端通过nginx代理访问（本地8080，生产环境用域名）
-  return process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:8080'
+  // 浏览器端通过nginx代理访问（本地8089，生产环境用域名）
+  return process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'
 }
 
 /**

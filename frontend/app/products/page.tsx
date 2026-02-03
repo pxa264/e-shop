@@ -1,9 +1,10 @@
 'use client'
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react'
 import { Search, ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react'
 import { getProducts, fetchCategories, getImageUrl } from '@/lib/api'
-import Header from '@/components/Header'
 import toast from 'react-hot-toast'
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
@@ -41,7 +42,8 @@ export default function ProductsPage() {
       if (searchQuery) {
         filteredProducts = filteredProducts.filter((product: any) =>
           product.attributes.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          product.attributes.description?.toLowerCase().includes(searchQuery.toLowerCase())
+          product.attributes.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          product.attributes.sku?.toLowerCase().includes(searchQuery.toLowerCase())
         )
       }
       
@@ -73,8 +75,7 @@ export default function ProductsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
-      <Header />
+    <div className="bg-[#fafafa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
           <div>

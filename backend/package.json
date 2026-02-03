@@ -17,11 +17,16 @@
     "@strapi/provider-upload-aws-s3": "4.25.0",
     "@strapi/strapi": "4.25.0",
     "better-sqlite3": "9.4.3",
+    "exceljs": "^4.4.0",
     "pg": "8.11.3",
+    "rc-tree": "^5.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.4",
-    "styled-components": "^5.3.11"
+    "recharts": "^2.15.4",
+    "strapi-plugin-custom-api": "^1.0.6",
+    "styled-components": "^5.3.11",
+    "xlsx": "^0.18.5"
   },
   "author": {
     "name": "E-commerce Team"

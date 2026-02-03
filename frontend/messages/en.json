@@ -127,7 +127,9 @@
     "welcomeSubtitle": "Curated quality products for a better life",
     "startShopping": "Start shopping",
     "hot": "Featured",
-    "viewAll": "View all"
+    "viewAll": "View all",
+    "browseCategories": "Browse categories",
+    "products": "products"
   },
   "products": {
     "title": "Explore products",
@@ -168,6 +170,7 @@
         "description": "Description",
         "related": "You may also like"
       },
+      "selectVariant": "Select variant",
       "stock": {
         "label": "Stock",
         "inStock": "In stock ({count})",
@@ -184,6 +187,7 @@
         "loginToFavorite": "Please sign in to favorite this product.",
         "favorited": "Added to favorites",
         "unfavorited": "Removed from favorites",
+        "selectVariant": "Please select a variant",
         "addedToCart": "Added {count} x {name} to cart",
         "addToCartFailed": "Failed to add to cart. Please try again."
       }

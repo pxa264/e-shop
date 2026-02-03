@@ -1,0 +1,50 @@
+/**
+ * Custom Admin Panel Styles
+ * Applied only to non-super-admin users via .custom-operator-view body class
+ */
+
+/* Hide Settings menu item */
+body.custom-operator-view nav a[href="/admin/settings"],
+body.custom-operator-view nav a[href*="/admin/settings/"] {
+  display: none !important;
+}
+
+/* Hide Releases menu item */
+body.custom-operator-view nav a[href*="/plugins/content-releases"],
+body.custom-operator-view nav a[href*="content-releases"] {
+  display: none !important;
+}
+
+/* Hide GENERAL section header in navigation */
+/* Note: Using JavaScript in app.js for more precise targeting */
+
+/* Hide NPS survey/feedback prompts */
+body.custom-operator-view [data-testid="nps-survey"],
+body.custom-operator-view [class*="NpsSurvey"],
+body.custom-operator-view [class*="FeedbackModal"],
+body.custom-operator-view div[role="dialog"]:has([class*="feedback"]),
+body.custom-operator-view div[role="dialog"]:has([class*="survey"]) {
+  display: none !important;
+}
+
+/* Hide tutorial/onboarding modals */
+body.custom-operator-view [data-testid="onboarding"],
+body.custom-operator-view [class*="OnboardingModal"],
+body.custom-operator-view [class*="TutorialModal"] {
+  display: none !important;
+}
+
+/* Disable Strapi Dashboard link in header */
+body.custom-operator-view a[aria-label="Strapi Dashboard"],
+body.custom-operator-view header a[href="/admin"]:first-of-type {
+  pointer-events: none !important;
+  cursor: default !important;
+  opacity: 0.6;
+}
+
+/* Hide "What's new" notifications */
+body.custom-operator-view [data-testid="releases-notification"],
+body.custom-operator-view button[aria-label*="notification"],
+body.custom-operator-view button[aria-label*="What's new"] {
+  display: none !important;
+}

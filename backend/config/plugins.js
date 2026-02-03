@@ -29,6 +29,20 @@ module.exports = ({ env }) => ({
     },
   },
 
+  'custom-api': {
+    enabled: true,
+    resolve: './src/plugins/custom-api',
+  },
+
+  'ops-dashboard': {
+    enabled: true,
+    resolve: './src/plugins/ops-dashboard',
+  },
+
+  'content-releases': {
+    enabled: false,
+  },
+
   documentation: {
     enabled: env.bool('ENABLE_DOCUMENTATION', false),
     config: {

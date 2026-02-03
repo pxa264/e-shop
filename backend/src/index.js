@@ -152,6 +152,38 @@ module.exports = {
         await permissionsService.updateRole(authenticatedRole.id, { permissions });
         strapi.log.info('API permissions configured for authenticated users');
       }
+
+      // Configure ops-dashboard permissions for admin roles
+      // 注释掉自动权限分配，改为手动在 Strapi Admin 中配置
+      // 原因：自动权限分配容易出错，手动配置更可靠
+      /*
+      try {
+        const roleService = strapi.admin.services.role;
+        const permissionService = strapi.admin.services.permission;
+
+        const roles = await roleService.findAllWithUsersCount();
+
+        for (const role of roles) {
+          if (role.code === 'strapi-super-admin') continue;
+
+          if (role.code === 'operator' || role.code === 'editor') {
+            const permissions = await permissionService.findMany({
+              where: { action: 'plugin::ops-dashboard.read' },
+            });
+
+            if (permissions.length > 0) {
+              await roleService.assignPermissions(role.id, {
+                permissions: permissions.map(p => p.id),
+              });
+            }
+          }
+        }
+
+        strapi.log.info('ops-dashboard permissions configured');
+      } catch (error) {
+        strapi.log.error(`ops-dashboard permission config error: ${error.message}`);
+      }
+      */
     } catch (error) {
       strapi.log.error(`Bootstrap error: ${error.message}`);
     }

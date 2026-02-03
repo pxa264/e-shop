@@ -1,0 +1,40 @@
+{
+  "name": "strapi-plugin-custom-api",
+  "version": "1.0.6",
+  "description": "Create custom API's from within the Admin dashboard of Strapi.",
+  "strapi": {
+    "name": "custom-api",
+    "description": "Create custom API's from within the Admin dashboard of Strapi.",
+    "kind": "plugin",
+    "displayName": "Custom Api Builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivmagarwal/strapi-plugin-custom-api-builder"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@strapi/strapi": "4.x.x"
+  },
+  "author": {
+    "name": "Vivek M. Agarwal",
+    "email": "vivmagarwal@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Vivek M. Agarwal",
+      "email": "vivmagarwal@gmail.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/vivmagarwal/strapi-plugin-custom-api-builder/issues"
+  },
+  "keywords": [
+    "strapi",
+    "plugin",
+    "api",
+    "visual api builder",
+    "Drupal views for strapi"
+  ],
+  "license": "MIT"
+}

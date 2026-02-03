@@ -1,10 +1,13 @@
 'use client'
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createOrder, createOrderItem, getImageUrl, getAddresses } from '@/lib/api'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { useAuth } from '@/contexts/AuthContext'
 import toast from 'react-hot-toast'
 
@@ -14,6 +17,8 @@ interface CartItem {
   price: number
   quantity: number
   image?: string
+  variantId?: number | null
+  variantName?: string | null
 }
 
 interface AddressItem {
@@ -224,7 +229,9 @@ export default function CheckoutPage() {
           productName: item.name,
           price: item.price,
           quantity: item.quantity,
-          subtotal: item.price * item.quantity
+          subtotal: item.price * item.quantity,
+          variantId: item.variantId || null,
+          variantName: item.variantName || null
         }
         return createOrderItem(orderItemData)
       })
@@ -500,10 +507,10 @@ export default function CheckoutPage() {
               
               <div className="space-y-6 mb-8 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
                 {cart.map((item) => (
-                  <div key={item.id} className="flex items-center gap-4">
+                  <div key={item.variantId ? `${item.id}-${item.variantId}` : `${item.id}`} className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-gray-50 rounded-xl flex-shrink-0 overflow-hidden border border-gray-100">
                       {item.image ? (
-                        <img 
+                        <img
                           src={getImageUrl(item.image)}
                           alt={item.name}
                           className="w-full h-full object-cover"
@@ -516,6 +523,11 @@ export default function CheckoutPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h4 className="font-black text-sm text-gray-900 truncate">{item.name}</h4>
+                      {item.variantName && (
+                        <p className="text-xs text-gray-500 font-medium mt-0.5">
+                          {item.variantName}
+                        </p>
+                      )}
                       <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mt-1">
                         ¥{item.price.toFixed(2)} × {item.quantity}
                       </p>
@@ -584,6 +596,8 @@ export default function CheckoutPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

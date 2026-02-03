@@ -10,6 +10,6 @@ export default createMiddleware({
 export const config = {
   // 只处理前端路由，排除 Strapi 后端和系统路径
   matcher: [
-    '/((?!api|admin|uploads|i18n|content-manager|content-type-builder|users-permissions|email|upload|documentation|logo\\.png|favicon\\.ico|_next|_vercel|.*\\..*).*)',
+    '/((?!api|admin|uploads|i18n|content-manager|content-type-builder|users-permissions|email|upload|documentation|ops-dashboard|custom-api|logo\\.png|favicon\\.ico|_next|_vercel|.*\\..*).*)',
   ],
 }

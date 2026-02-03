@@ -741,6 +741,48 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface PluginCustomApiCustomApi extends Schema.CollectionType {
+  collectionName: 'custom_apis';
+  info: {
+    singularName: 'custom-api';
+    pluralName: 'custom-apis';
+    displayName: 'Custom API';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: true;
+    };
+    'content-type-builder': {
+      visible: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'plugin::custom-api.custom-api', 'name'> &
+      Attribute.Required;
+    selectedContentType: Attribute.JSON;
+    structure: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::custom-api.custom-api',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::custom-api.custom-api',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -842,6 +884,11 @@ export interface ApiBannerBanner extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    merchant: Attribute.Relation<
+      'api::banner.banner',
+      'manyToOne',
+      'admin::user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1144,10 +1191,15 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
-    variants: Attribute.JSON & Attribute.DefaultTo<[]>;
+    variants: Attribute.Component<'product.variant', true>;
     featured: Attribute.Boolean & Attribute.DefaultTo<false>;
     status: Attribute.Enumeration<['draft', 'published', 'archived']> &
       Attribute.DefaultTo<'draft'>;
+    merchant: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'admin::user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1274,6 +1326,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::custom-api.custom-api': PluginCustomApiCustomApi;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::banner.banner': ApiBannerBanner;
       'api::category.category': ApiCategoryCategory;

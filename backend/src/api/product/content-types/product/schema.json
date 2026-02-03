@@ -56,8 +56,9 @@
       "inversedBy": "products"
     },
     "variants": {
-      "type": "json",
-      "default": []
+      "type": "component",
+      "repeatable": true,
+      "component": "product.variant"
     },
     "featured": {
       "type": "boolean",
@@ -71,6 +72,11 @@
         "archived"
       ],
       "default": "draft"
+    },
+    "merchant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "admin::user"
     }
   }
 }

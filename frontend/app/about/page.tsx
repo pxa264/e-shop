@@ -1,6 +1,7 @@
 'use client'
 
-import Header from '@/components/Header'
+export const dynamic = 'force-dynamic';
+
 import { Link } from '@/navigation'
 import { useTranslations } from 'next-intl'
 
@@ -53,8 +54,7 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
-      <Header />
+    <div className="bg-[#fafafa]">
       
       <main>
         {/* Hero Section */}

@@ -1,9 +1,10 @@
 'use client'
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react'
 import { Link } from '@/navigation'
 import { ShoppingBag, Trash2, Plus, Minus } from 'lucide-react'
-import Header from '@/components/Header'
 import { getImageUrl } from '@/lib/api'
 import { useTranslations } from 'next-intl'
 import toast from 'react-hot-toast'
@@ -14,6 +15,8 @@ interface CartItem {
   price: number
   quantity: number
   image?: string
+  variantId?: number | null
+  variantName?: string | null
 }
 
 export default function CartPage() {
@@ -48,19 +51,32 @@ export default function CartPage() {
     }
   }
 
-  const updateQuantity = (id: number, newQuantity: number) => {
+  const updateQuantity = (id: number, variantId: number | null | undefined, newQuantity: number) => {
     if (newQuantity < 1) return
-    const updatedCart = cart.map(item =>
-      item.id === id ? { ...item, quantity: newQuantity } : item
-    )
+    const updatedCart = cart.map(item => {
+      if (variantId) {
+        return item.id === id && item.variantId === variantId ? { ...item, quantity: newQuantity } : item
+      }
+      return item.id === id && !item.variantId ? { ...item, quantity: newQuantity } : item
+    })
     setCart(updatedCart)
     localStorage.setItem('cart', JSON.stringify(updatedCart))
     window.dispatchEvent(new Event('cartUpdated'))
   }
 
-  const removeItem = (id: number) => {
-    const item = cart.find(i => i.id === id)
-    const updatedCart = cart.filter(item => item.id !== id)
+  const removeItem = (id: number, variantId: number | null | undefined) => {
+    const item = cart.find(i => {
+      if (variantId) {
+        return i.id === id && i.variantId === variantId
+      }
+      return i.id === id && !i.variantId
+    })
+    const updatedCart = cart.filter(item => {
+      if (variantId) {
+        return !(item.id === id && item.variantId === variantId)
+      }
+      return !(item.id === id && !item.variantId)
+    })
     setCart(updatedCart)
     localStorage.setItem('cart', JSON.stringify(updatedCart))
     window.dispatchEvent(new Event('cartUpdated'))
@@ -92,8 +108,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
-      <Header />
+    <div className="bg-[#fafafa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
@@ -131,7 +146,7 @@ export default function CartPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2 space-y-6 animate-fade-in">
               {cart.map((item) => (
-                <div key={item.id} className="group bg-white rounded-3xl shadow-soft p-6 border border-gray-50 hover:border-primary-100 transition-all duration-300">
+                <div key={item.variantId ? `${item.id}-${item.variantId}` : `${item.id}`} className="group bg-white rounded-3xl shadow-soft p-6 border border-gray-50 hover:border-primary-100 transition-all duration-300">
                   <div className="flex flex-col sm:flex-row gap-6">
                     <div className="w-full sm:w-32 h-32 bg-gray-50 rounded-2xl flex-shrink-0 overflow-hidden relative group-hover:shadow-soft transition-all">
                       {item.image ? (
@@ -150,19 +165,24 @@ export default function CartPage() {
                     <div className="flex-1 flex flex-col justify-between">
                       <div>
                         <h3 className="font-black text-xl text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">{item.name}</h3>
+                        {item.variantName && (
+                          <p className="text-gray-500 text-sm font-medium mb-2">
+                            {item.variantName}
+                          </p>
+                        )}
                         <p className="text-primary-600 font-black text-2xl">¥{item.price.toFixed(2)}</p>
                       </div>
                       
                       <div className="flex items-center bg-gray-50 w-fit rounded-xl p-1 border border-gray-100 mt-4">
-                        <button 
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        <button
+                          onClick={() => updateQuantity(item.id, item.variantId, item.quantity - 1)}
                           className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white hover:text-primary-600 transition-all"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
                         <span className="w-10 text-center font-black text-gray-900">{item.quantity}</span>
-                        <button 
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        <button
+                          onClick={() => updateQuantity(item.id, item.variantId, item.quantity + 1)}
                           className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white hover:text-primary-600 transition-all"
                         >
                           <Plus className="w-3 h-3" />
@@ -171,8 +191,8 @@ export default function CartPage() {
                     </div>
 
                     <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start">
-                      <button 
-                        onClick={() => removeItem(item.id)}
+                      <button
+                        onClick={() => removeItem(item.id, item.variantId)}
                         className="text-gray-300 hover:text-red-500 p-2 rounded-xl hover:bg-red-50 transition-all order-2 sm:order-1"
                         aria-label={t('cart.item.removeAria')}
                       >

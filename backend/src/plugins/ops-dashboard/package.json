@@ -1,0 +1,23 @@
+{
+  "name": "ops-dashboard",
+  "version": "1.0.0",
+  "description": "Operations dashboard for Operator and Editor roles",
+  "strapi": {
+    "name": "ops-dashboard",
+    "displayName": "Operations Dashboard",
+    "description": "Dashboard with KPIs and data visualization",
+    "kind": "plugin"
+  },
+  "dependencies": {
+    "rc-tree": "^5.8.0",
+    "react-countup": "^6.5.3",
+    "recharts": "^3.7.0"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.0.0"
+  },
+  "author": {
+    "name": "E-commerce Team"
+  },
+  "license": "MIT"
+}

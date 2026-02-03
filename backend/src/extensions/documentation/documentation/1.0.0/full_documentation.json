@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-01-19T06:49:24.587Z"
+    "x-generation-date": "2026-02-03T02:05:12.901Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -117,6 +117,17 @@
           "isActive": {
             "type": "boolean"
           },
+          "merchant": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "example": "string or id"
+          },
           "locale": {
             "type": "string"
           }
@@ -157,6 +168,17 @@
               },
               "isActive": {
                 "type": "boolean"
+              },
+              "merchant": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               },
               "locale": {
                 "type": "string"
@@ -919,6 +941,23 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "merchant": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
           },
           "createdAt": {
             "type": "string",
@@ -1867,7 +1906,30 @@
                                         }
                                       }
                                     },
-                                    "variants": {},
+                                    "variants": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "name": {
+                                            "type": "string"
+                                          },
+                                          "price": {
+                                            "type": "number",
+                                            "format": "float"
+                                          },
+                                          "stock": {
+                                            "type": "integer"
+                                          },
+                                          "sku": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
                                     "featured": {
                                       "type": "boolean"
                                     },
@@ -1878,6 +1940,23 @@
                                         "published",
                                         "archived"
                                       ]
+                                    },
+                                    "merchant": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -5406,7 +5485,12 @@
                 ],
                 "example": "string or id"
               },
-              "variants": {},
+              "variants": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ProductVariantComponent"
+                }
+              },
               "featured": {
                 "type": "boolean"
               },
@@ -5417,6 +5501,17 @@
                   "published",
                   "archived"
                 ]
+              },
+              "merchant": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               }
             }
           }
@@ -6371,7 +6466,30 @@
                                         }
                                       }
                                     },
-                                    "variants": {},
+                                    "variants": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "name": {
+                                            "type": "string"
+                                          },
+                                          "price": {
+                                            "type": "number",
+                                            "format": "float"
+                                          },
+                                          "stock": {
+                                            "type": "integer"
+                                          },
+                                          "sku": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
                                     "featured": {
                                       "type": "boolean"
                                     },
@@ -6382,6 +6500,23 @@
                                         "published",
                                         "archived"
                                       ]
+                                    },
+                                    "merchant": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -6491,7 +6626,12 @@
               }
             }
           },
-          "variants": {},
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductVariantComponent"
+            }
+          },
           "featured": {
             "type": "boolean"
           },
@@ -6502,6 +6642,23 @@
               "published",
               "archived"
             ]
+          },
+          "merchant": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
           },
           "createdAt": {
             "type": "string",
@@ -6570,6 +6727,27 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "ProductVariantComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          },
+          "stock": {
+            "type": "integer"
+          },
+          "sku": {
+            "type": "string"
           }
         }
       },
@@ -8411,7 +8589,30 @@
                           }
                         }
                       },
-                      "variants": {},
+                      "variants": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "price": {
+                              "type": "number",
+                              "format": "float"
+                            },
+                            "stock": {
+                              "type": "integer"
+                            },
+                            "sku": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
                       "featured": {
                         "type": "boolean"
                       },
@@ -8422,6 +8623,23 @@
                           "published",
                           "archived"
                         ]
+                      },
+                      "merchant": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
                       },
                       "createdAt": {
                         "type": "string",

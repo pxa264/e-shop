@@ -127,7 +127,9 @@
     "welcomeSubtitle": "甄选优质好物，为您打造精致生活",
     "startShopping": "立即开启购物之旅",
     "hot": "热门推荐",
-    "viewAll": "查看全部商品"
+    "viewAll": "查看全部商品",
+    "browseCategories": "浏览分类",
+    "products": "件商品"
   },
   "products": {
     "title": "探索商品",
@@ -168,6 +170,7 @@
         "description": "商品描述",
         "related": "猜你喜欢"
       },
+      "selectVariant": "选择规格",
       "stock": {
         "label": "库存状态",
         "inStock": "充足 ({count} 件)",
@@ -184,6 +187,7 @@
         "loginToFavorite": "请先登录后再收藏商品",
         "favorited": "已添加至收藏夹",
         "unfavorited": "已从收藏夹移除",
+        "selectVariant": "请选择商品规格",
         "addedToCart": "已添加 {count} 件 {name} 到购物车！",
         "addToCartFailed": "添加到购物车失败，请重试"
       }
